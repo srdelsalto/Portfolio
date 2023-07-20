@@ -11,9 +11,9 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface ToDoMapper {
-    ToDoMapper INSTANCE = Mappers.getMapper( ToDoMapper.class );
     @Mapping(source = "id", target = "id")
-    @Mapping(source = "name", target = "name")
+    @Mapping(source = "title", target = "title")
+    @Mapping(source = "description", target = "description")
     @Mapping(source = "status", target = "status")
     @Mapping(source = "createdAt", target = "createdAt")
     ToDo toEntity(ToDoModel toDoModel);

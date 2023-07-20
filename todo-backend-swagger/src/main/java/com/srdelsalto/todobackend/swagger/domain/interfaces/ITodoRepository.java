@@ -10,4 +10,5 @@ public interface ITodoRepository {
     List<ToDo> findAll();
     ToDo findById(String id);
     void update(ToDo todo);
+    void delete(String id);
 }

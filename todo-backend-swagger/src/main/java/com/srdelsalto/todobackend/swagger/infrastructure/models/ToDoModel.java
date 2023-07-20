@@ -23,8 +23,10 @@ public class ToDoModel {
     )
     @Column(name = "id")
     private String id;
-    @Column(name = "name")
-    private String name;
+    @Column(name = "title")
+    private String title;
+    @Column(name = "description")
+    private String description;
     @Column(name = "status")
     private Boolean status;
     @Column(name = "createdAt")

@@ -6,9 +6,10 @@ import com.srdelsalto.todobackend.swagger.domain.interfaces.ITodoRepository;
 import io.jkratz.mediator.core.Mediator;
 import io.jkratz.mediator.core.RequestHandler;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-@Repository
+@Component
 public class CreateToDoCommandHandler implements RequestHandler<CreateToDoCommand, CreateToDoResponse> {
     @Autowired
     private ITodoRepository repository;
@@ -19,7 +20,8 @@ public class CreateToDoCommandHandler implements RequestHandler<CreateToDoComman
     @Override
     public CreateToDoResponse handle(CreateToDoCommand createToDoCommand) {
         ToDo todoItem = new ToDo();
-        todoItem.setName(createToDoCommand.getName());
+        todoItem.setTitle(createToDoCommand.getTitle());
+        todoItem.setDescription(createToDoCommand.getDescription());
         CreateToDoResponse response = new CreateToDoResponse();
         String message = "";
 
@@ -32,10 +34,10 @@ public class CreateToDoCommandHandler implements RequestHandler<CreateToDoComman
         } catch (Exception e) {
             message = "Error en creación!";
             todoItem = new ToDo();
+        } finally {
+            response.setMessage(message);
+            response.setTodoItem(todoItem);
         }
-
-        response.setMessage(message);
-        response.setTodoItem(todoItem);
 
         return response;
     }

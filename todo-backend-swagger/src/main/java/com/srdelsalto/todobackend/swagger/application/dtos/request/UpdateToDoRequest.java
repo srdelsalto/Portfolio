@@ -5,7 +5,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CreateToDoRequest {
+public class UpdateToDoRequest {
+    private String id;
     private String title;
     private String description;
 }

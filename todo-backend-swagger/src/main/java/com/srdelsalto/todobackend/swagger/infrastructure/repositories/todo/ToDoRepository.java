@@ -45,4 +45,10 @@ public class ToDoRepository implements ITodoRepository {
 
         jpaRepository.save(model);
     }
+
+    @Override
+    @Transactional
+    public void delete(String id) {
+        jpaRepository.deleteById(id);
+    }
 }

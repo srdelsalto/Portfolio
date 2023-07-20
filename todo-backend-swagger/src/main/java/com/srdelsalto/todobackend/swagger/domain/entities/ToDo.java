@@ -9,7 +9,8 @@ import java.util.Date;
 @Setter
 public class ToDo {
     private String id;
-    private String name;
+    private String title;
+    private String description;
     private Boolean status;
     private Date createdAt;
 }
